@@ -1,12 +1,8 @@
-Simple app on angular 2 and typescript
+##Angular 2 Multiselect component
 
-Installation
+####Installation
 
-Clone repository
-Install nodejs
-Run npm install
-Run gulp build task
-
-Install httpster
-cd into source_path/dist
-run httpster
+- Clone repository
+- Install nodejs
+- Run npm install
+- Run gulp build task
