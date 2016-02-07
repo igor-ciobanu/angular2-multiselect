@@ -1,5 +1,7 @@
 <h1>Demo Multiselect</h1>
 
-<multiselect [collection]="store.items" [label]="'summary'" [mutiselectModel]="multiselectModel"></multiselect>
+<h2>Multiselect multiple </h2>
+<multiselect [multiple]="true" [collection]="store.items" [label]="'summary'" [mutiselectModel]="multiselectModel"></multiselect>
 
-{{multiselectModel}}
+<h2>Multiselect single </h2>
+<multiselect [multiple]="false" [collection]="store.items" [label]="'summary'" [mutiselectModel]="multiselectModel"></multiselect>
