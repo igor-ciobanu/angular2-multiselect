@@ -22,7 +22,6 @@ class SearchTextPipe implements PipeTransform{
 })
 
 export class Multiselect {
-    filterModel: string;
     toggleSelectState: string = 'none';
     multiselectHeader: string = 'Select';
     @Input('collection') collection: any;
@@ -41,13 +40,16 @@ export class Multiselect {
     checkAll() {
         this.collection.forEach((t: any) => t.checked = true);
         this.updateModel();
-        console.log(this.collection);
     }
 
     unCheckAll() {
         this.collection.forEach((t: any) => t.checked = false);
         this.updateModel();
-        console.log(this.collection);
+    }
+
+    selectItem(item: any) {
+        item.checked = !item.checked;
+        this.updateModel();
     }
 
     updateModel() {

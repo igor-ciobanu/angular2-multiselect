@@ -11,7 +11,7 @@ import {Multiselect} from './multiselect';
 
 export default class TaskList {
     store: TaskStore;
-    multiselectModel: Array<any> = ['2','4'];
+    multiselectModel: Array<any> = [];
     constructor(store: TaskStore) {
         this.store = store;
     }

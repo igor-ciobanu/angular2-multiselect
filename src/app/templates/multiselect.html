@@ -14,8 +14,8 @@
 
         </div>
         <ul>
-            <li *ngFor="#task of collection | searchText: filterModel: label">
-              <a class="checked"><i class="glyphicon" ></i> {{task[label]}}</a>
+            <li *ngFor="#item of collection | searchText: filterModel: label">
+              <a class="checked" (click)="selectItem(item)"><i class="glyphicon" ></i> {{item[label]}}</a>
             </li>
         </ul>
     </div>
