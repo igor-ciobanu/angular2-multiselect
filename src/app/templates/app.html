@@ -1,7 +1,8 @@
 <h1>Demo Multiselect</h1>
 
 <h2>Multiselect multiple </h2>
-<multiselect [multiple]="true" [collection]="store.items" [label]="'summary'" [mutiselectModel]="multiselectModel"></multiselect>
-
+<multiselect (modelUpdated)="updateModel1($event)" [multiple]="true" [collection]="store.items" [label]="'summary'" [mutiselectModel]="multiselectModel1"></multiselect>
+Model: {{renderModel(multiselectModel1)}}
 <h2>Multiselect single </h2>
-<multiselect [multiple]="false" [collection]="store.items" [label]="'summary'" [mutiselectModel]="multiselectModel"></multiselect>
+<multiselect (modelUpdated)="updateModel2($event)" [multiple]="false" [collection]="store.items" [label]="'summary'" [mutiselectModel]="multiselectModel2"></multiselect>
+Model: {{renderModel(multiselectModel2)}}

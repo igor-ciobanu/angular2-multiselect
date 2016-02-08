@@ -11,9 +11,24 @@ import {Multiselect} from './multiselect';
 
 export default class TaskList {
     store: TaskStore;
-    multiselectModel: Array<any> = [];
+    multiselectModel1: Array<any> = [];
+    multiselectModel2: Array<any> = [];
     constructor(store: TaskStore) {
         this.store = store;
+    }
+
+    updateModel1(multiselectModel: any) {
+        this.multiselectModel1 = multiselectModel;
+        console.log(multiselectModel);
+    }
+
+    updateModel2(multiselectModel: any) {
+        this.multiselectModel2 = multiselectModel;
+        console.log(multiselectModel);
+    }
+
+    renderModel(model: any) {
+        return JSON.stringify(model);
     }
 
 }

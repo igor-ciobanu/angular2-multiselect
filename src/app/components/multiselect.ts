@@ -1,4 +1,4 @@
-import {Component, Input} from 'angular2/core';
+import {Component, Input, Output, EventEmitter} from 'angular2/core';
 import {Pipe, PipeTransform} from 'angular2/core';
 
 @Pipe({
@@ -24,11 +24,14 @@ class SearchTextPipe implements PipeTransform{
 export class Multiselect {
     toggleSelectState: string = 'none';
     multiselectHeader: string = 'Select';
-    
+
     @Input('collection') collection: any;
     @Input('multiple') multiple: boolean;
     @Input('label') label: string;
     @Input('mutiselectModel') mutiselectModel: any;
+
+    @Output()
+    modelUpdated = new EventEmitter<any>();
 
     toggleSelect() {
         if (this.toggleSelectState == 'none') {
@@ -66,7 +69,8 @@ export class Multiselect {
                 this.mutiselectModel.push(value);
             }
         }
-        this.updateHeader()
+        this.updateHeader();
+        this.modelUpdated.emit(this.mutiselectModel);
     }
 
     updateHeader() {
