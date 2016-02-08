@@ -1,7 +1,7 @@
 {
-  "name": "angular2-task-list",
+  "name": "angular2-multiselect",
   "version": "0.1.0",
-  "description": "A task list in Angular 2.0",
+  "description": "A multiselect component Angular 2.0 (typescript)",
   "author": "igor.ciobanu@gmail.com",
   "license": "ISC",
   "devDependencies": {
