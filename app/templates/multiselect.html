@@ -1,0 +1,22 @@
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" (click)="toggleSelect()">
+        {{multiselectHeader}}<span class="caret"></span>
+  </button>
+<div class="dropdown-menu" [ngStyle]="{'display': toggleSelectState}">
+    <div class="dropdown-header">
+            <div>
+                  <input [(ngModel)]="filterModel"  class="form-control input-sm" type="text"  autofocus="autofocus" placeholder="Filter" />
+            </div>
+            <div >
+                  <button (click)="checkAll()" class="btn btn-link btn-xs" type="button"><i class="glyphicon glyphicon-ok"></i> Check all</button>
+                  <button (click)="unCheckAll()" class="btn btn-link btn-xs" type="button"><i class="glyphicon glyphicon-remove"></i> Uncheck all</button>
+            </div>
+
+        </div>
+        <ul>
+            <li *ngFor="#item of collection | searchText: filterModel: label">
+              <a class="checked" (click)="selectItem(item)"><i class="glyphicon" ></i> {{item[label]}}</a>
+            </li>
+        </ul>
+    </div>
+</div>
