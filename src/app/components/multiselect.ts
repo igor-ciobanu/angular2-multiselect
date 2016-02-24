@@ -22,16 +22,21 @@ class SearchTextPipe implements PipeTransform{
 })
 
 export class Multiselect {
-    toggleSelectState: string = 'none';
-    multiselectHeader: string = 'Select';
 
     @Input('collection') collection: any;
     @Input('multiple') multiple: boolean;
     @Input('label') label: string;
+    @Input('header') header: string;
     @Input('mutiselectModel') mutiselectModel: any;
+    toggleSelectState: string = 'none';
+    multiselectHeader: string = '';
 
     @Output()
     modelUpdated = new EventEmitter<any>();
+
+    ngOnInit() {
+        this.multiselectHeader = this.header || 'Select'
+    }
 
     toggleSelect() {
         if (this.toggleSelectState == 'none') {
@@ -77,7 +82,7 @@ export class Multiselect {
         if (this.mutiselectModel.length > 0) {
             this.multiselectHeader = this.mutiselectModel.length
         } else {
-            this.multiselectHeader = 'Select';
+            this.multiselectHeader = this.header;
         }
     }
 }

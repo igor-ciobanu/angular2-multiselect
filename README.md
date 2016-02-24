@@ -43,6 +43,7 @@ export default class DemoComponent {
 | multiple | true/false| If value is true we can select many items, if false only one item |
 | collection | array | A list of objects for multiselect |
 | label | string | Key of a object which will be displayed  for item |
+| header | string | Header of multiselect (Default value 'Select')  |
 | mutiselectModel | array/object | Value of model from used component |
 | modelUpdated | function  | Function from used compoent which will update 'multiselectModel' value  |
 
