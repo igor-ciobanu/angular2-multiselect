@@ -7,7 +7,7 @@
             <div>
                   <input [(ngModel)]="filterModel"  class="form-control input-sm" type="text"  autofocus="autofocus" placeholder="Filter" />
             </div>
-            <div >
+            <div *ngIf="multiple" >
                   <button (click)="checkAll()" class="btn btn-link btn-xs" type="button"><i class="glyphicon glyphicon-ok"></i> Check all</button>
                   <button (click)="unCheckAll()" class="btn btn-link btn-xs" type="button"><i class="glyphicon glyphicon-remove"></i> Uncheck all</button>
             </div>
