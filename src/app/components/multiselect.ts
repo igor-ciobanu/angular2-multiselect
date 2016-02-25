@@ -51,23 +51,29 @@ export class Multiselect {
             return;
         }
         this.collection.forEach((t: any) => t.checked = true);
-        this.updateModel();
+        this.updateMultipleModel();
     }
 
     unCheckAll() {
         this.collection.forEach((t: any) => t.checked = false);
-        this.updateModel();
+        this.updateMultipleModel();
     }
 
     selectItem(item: any) {
-        if (this.multiple != true) {
-            this.unCheckAll();
-        }
         item.checked = !item.checked;
-        this.updateModel();
+        if (this.multiple != true) {
+            this.updateSingleModel(item);
+        } else {
+            this.updateMultipleModel();
+        }
     }
 
-    updateModel() {
+    updateSingleModel(item: any) {
+        this.mutiselectModel = item;
+        this.updateHeader();
+    }
+
+    updateMultipleModel() {
         this.mutiselectModel = [];
         for (let value of this.collection) {
             if (value.checked) {
@@ -75,14 +81,17 @@ export class Multiselect {
             }
         }
         this.updateHeader();
-        this.modelUpdated.emit(this.mutiselectModel);
+
     }
 
     updateHeader() {
-        if (this.mutiselectModel.length > 0) {
+        if (this.multiple != true) {
+            this.multiselectHeader = this.mutiselectModel[this.label];
+        } else if (this.mutiselectModel.length > 0) {
             this.multiselectHeader = this.mutiselectModel.length
         } else {
             this.multiselectHeader = this.header;
         }
+        this.modelUpdated.emit(this.mutiselectModel);
     }
 }
