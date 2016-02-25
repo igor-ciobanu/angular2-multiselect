@@ -70,7 +70,8 @@ export class Multiselect {
 
     updateSingleModel(item: any) {
         this.mutiselectModel = item;
-        this.updateHeader();
+        this.updateSimpleHeader();
+        this.modelUpdated.emit(this.mutiselectModel);
     }
 
     updateMultipleModel() {
@@ -80,18 +81,21 @@ export class Multiselect {
                 this.mutiselectModel.push(value);
             }
         }
-        this.updateHeader();
+        this.updateMultipleHeader();
+        this.modelUpdated.emit(this.mutiselectModel);
 
     }
 
-    updateHeader() {
-        if (this.multiple != true) {
-            this.multiselectHeader = this.mutiselectModel[this.label];
-        } else if (this.mutiselectModel.length > 0) {
+    updateMultipleHeader() {
+        if (this.mutiselectModel.length > 0) {
             this.multiselectHeader = this.mutiselectModel.length
         } else {
             this.multiselectHeader = this.header;
         }
-        this.modelUpdated.emit(this.mutiselectModel);
+
+    }
+
+    updateSimpleHeader() {
+        this.multiselectHeader = this.mutiselectModel[this.label]
     }
 }
