@@ -1,0 +1,37 @@
+{
+  "name": "angular2-multiselect",
+  "description": "A multiselect component Angular 2.0 (typescript)",
+  "main": "",
+  "authors": [
+    "vasile.mardari@gmail.com"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "angular2",
+    "multiselect",
+    "select",
+    "typescript",
+    "angular2-multiselect",
+    "angular",
+    "angular",
+    "multiselect",
+    "angular2",
+    "multiselect",
+    "multi-select"
+  ],
+  "homepage": "https://github.com/igariok1990/angular2-multiselect",
+  "moduleType": [
+    "es6"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6"
+  }
+}
