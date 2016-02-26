@@ -4,8 +4,7 @@ import {Multiselect} from './multiselect';
 
 @Component({
     selector: 'task-list',
-    templateUrl: 'app/templates/app.html',
-    styleUrls: ['app/assets/app.css'],
+    templateUrl: 'templates/overview.html',
     directives: [Multiselect]
 })
 

@@ -1,5 +1,5 @@
 import {bootstrap} from 'angular2/platform/browser';
-import TaskList from './components/app';
 import {TaskStore} from './stores/tasklist';
+import Overview from './components/overview';
 
-bootstrap(TaskList, [TaskStore]);
+bootstrap(Overview, [TaskStore]);

@@ -18,7 +18,7 @@ class SearchTextPipe implements PipeTransform{
 @Component({
     selector: 'multiselect',
     pipes: [SearchTextPipe],
-    templateUrl: 'app/templates/multiselect.html',
+    templateUrl: 'templates/ms_bootstrap.html',
 })
 
 export class Multiselect {
