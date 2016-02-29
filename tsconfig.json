@@ -11,7 +11,7 @@
         "noImplicitAny": true
     },
     "filesGlob": [
-        "src/**/*.ts",
+        "demo/**/*.ts",
         "typings/**/*.d.ts",
         "node_modules/immutable/dist/*.d.ts"
     ],

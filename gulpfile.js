@@ -10,7 +10,7 @@ const runSequence = require('run-sequence').use(gulp);
 
 // sass linting
 gulp.task('sassLint', function () {
-    gulp.src('src/assets/sass/**/*.scss')
+    gulp.src('demo/assets/sass/**/*.scss')
         .pipe(sassLint())
         .pipe(sassLint.format())
         .pipe(sassLint.failOnError());
@@ -18,7 +18,7 @@ gulp.task('sassLint', function () {
 
 // typescript linting
 gulp.task('tsLint', function() {
-    return gulp.src('src/**/*.ts')
+    return gulp.src('demo/**/*.ts')
         .pipe(tslint())
         .pipe(tslint.report('verbose'));
 });
@@ -30,7 +30,7 @@ gulp.task('clean', function () {
 
 // Sass compile
 gulp.task('sassCompile', function () {
-    return gulp.src('src/assets/sass/*.scss')
+    return gulp.src('demo/assets/sass/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(sourcemaps.write('./maps'))
@@ -39,7 +39,7 @@ gulp.task('sassCompile', function () {
 
 // TypeScript compile
 gulp.task('tsCompile', function () {
-    return gulp.src('src/**/*.ts')
+    return gulp.src('demo/**/*.ts')
         .pipe(sourcemaps.init())
         .pipe(typescript(tscConfig.compilerOptions))
         .pipe(sourcemaps.write('./maps'))
@@ -49,11 +49,11 @@ gulp.task('tsCompile', function () {
 // copy static assets
 gulp.task('copy:assets', function() {
     return gulp.src([
-        'src/**/*',
-        '!src/**/*.ts',
-        '!src/assets/sass/**/*.scss',
-        '!src/assets/sass',
-        '!src/assets/sass/**'
+        'demo/**/*',
+        '!demo/**/*.ts',
+        '!demo/assets/sass/**/*.scss',
+        '!demo/assets/sass',
+        '!demo/assets/sass/**'
     ]).pipe(gulp.dest('dist'))
 });
 
@@ -69,15 +69,22 @@ gulp.task('copy:libs', function() {
     ]).pipe(gulp.dest('dist/libs'))
 });
 
-// Run watch for src changes
+//copy component
+gulp.task('copy:component', function() {
+    return gulp.src([
+        'component/**/*'
+    ]).pipe(gulp.dest('demo/app'))
+});
+
+// Run watch for demo changes
 gulp.task('serve', ['build'], function() {
-    gulp.watch('src/**/*.html', ['copy:assets']);
-    gulp.watch('src/app/**/*.ts', ['tsCompile', 'copy:libs']);
-    gulp.watch('src/assets/sass/**/*.scss', ['sassCompile']);
+    gulp.watch('demo/**/*.html', ['copy:assets']);
+    gulp.watch('demo/app/**/*.ts', ['tsCompile', 'copy:libs']);
+    gulp.watch('demo/assets/sass/**/*.scss', ['sassCompile']);
 });
 
 gulp.task('build', function() {
-    runSequence(['tsLint', 'sassLint', 'clean'], ['tsCompile', 'sassCompile', 'copy:libs', 'copy:assets']);
+    runSequence(['tsLint', 'sassLint', 'clean'], ['tsCompile', 'sassCompile', 'copy:libs', 'copy:component', 'copy:assets']);
 });
 
 gulp.task('default', ['build']);
