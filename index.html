@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+    integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.33.3/es6-shim.min.js"></script>
@@ -56,10 +57,97 @@
     <task-list>Loading...</task-list>
 
 
-    <h3> Todo</h3>
+        <h2>
+            <a id="angular-2-multiselect-component" class="anchor" href="#angular-2-multiselect-component" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Angular 2 Multiselect component</h2>
 
-    <p>Write documentation</p>
+        <h4>
+            <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h4>
 
+        <ul>
+            <li>Clone repository</li>
+            <li>Install nodejs</li>
+            <li>Run npm install</li>
+            <li>Run gulp build task</li>
+        </ul>
+
+        <h4>
+            <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h4>
+
+        <div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">multiselect</span>
+              (<span class="pl-e">modelUpdated</span>)=<span class="pl-s"><span class="pl-pds">"</span>parentCompoentMethod($event)<span class="pl-pds">"</span></span>
+              [<span class="pl-e">multiple</span>]=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span>
+              [<span class="pl-e">collection</span>]=<span class="pl-s"><span class="pl-pds">"</span>items<span class="pl-pds">"</span></span>
+              [<span class="pl-e">label</span>]=<span class="pl-s"><span class="pl-pds">"</span>'item_key'<span class="pl-pds">"</span></span>
+              [<span class="pl-e">mutiselectModel</span>]=<span class="pl-s"><span class="pl-pds">"</span>multiselectModel<span class="pl-pds">"</span></span>&gt;
+            &lt;/<span class="pl-ent">multiselect</span>&gt;</pre></div>
+
+                    <div class="highlight highlight-source-js"><pre><span class="pl-k">import</span> {<span class="pl-smi">Multiselect</span>} <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>./multiselect<span class="pl-pds">'</span></span>;
+            <span class="pl-k">...</span>
+
+            @<span class="pl-en">Component</span>({
+                selector<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>demo-component<span class="pl-pds">'</span></span>,
+                <span class="pl-k">...</span>
+                directives<span class="pl-k">:</span> [Multiselect]
+            })
+
+            <span class="pl-k">export</span> <span class="pl-v">default</span> <span class="pl-k">class</span> <span class="pl-en">DemoComponent</span> {
+                <span class="pl-k">...</span>
+                multiselectModel<span class="pl-k">:</span> <span class="pl-c1">Array</span><span class="pl-k">&lt;</span>any<span class="pl-k">&gt;</span> <span class="pl-k">=</span> [];
+                <span class="pl-en">parentCompoentMethod</span>(<span class="pl-smi">multiselectModel</span>: <span class="pl-smi">any</span>) {
+                    <span class="pl-v">this</span>.<span class="pl-smi">multiselectModel1</span> <span class="pl-k">=</span> multiselectModel;
+                }
+            }</pre>
+        </div>
+
+        <h4>
+            <a id="api-documentation" class="anchor" href="#api-documentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>API Documentation</h4>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Attribute  Name</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>multiple</td>
+                <td>true/false</td>
+                <td>If value is true we can select many items, if false only one item</td>
+            </tr>
+            <tr>
+                <td>collection</td>
+                <td>array</td>
+                <td>A list of objects for multiselect</td>
+            </tr>
+            <tr>
+                <td>label</td>
+                <td>string</td>
+                <td>Key of a object which will be displayed  for item</td>
+            </tr>
+            <tr>
+                <td>header</td>
+                <td>string</td>
+                <td>Header of multiselect (Default value 'Select')</td>
+            </tr>
+            <tr>
+                <td>mutiselectModel</td>
+                <td>array/object</td>
+                <td>Value of model from used component</td>
+            </tr>
+            <tr>
+                <td>modelUpdated</td>
+                <td>function</td>
+                <td>Function from used compoent which will update 'multiselectModel' value</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h3>
+            <a id="licence" class="anchor" href="#licence" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Licence</h3>
+
+        <p>The MIT License (MIT)</p>
 
     <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/igariok1990/angular2-multiselect">Angular2-multiselect</a> is maintained by <a
@@ -69,9 +157,6 @@
                 href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a
                 href="https://twitter.com/jasonlong">Jason Long</a>.</span>
     </footer>
-
 </section>
-
-
 </body>
 </html>
