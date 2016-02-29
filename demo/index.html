@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Angular2 Multiselect Overview</title>
+        <link rel="stylesheet" href="assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/default.css">
+    </head>
+    <body>
+        <div class="ms-main-header">
+            <h3>Angular 2 multiselect overview</h3>
+        </div>
+        <div class="ms-main-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <task-list>Loading...</task-list>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="libs/angular2-polyfills.js"></script>
+        <script src="libs/system.src.js"></script>
+        <script src="libs/Rx.js"></script>
+        <script src="libs/angular2.dev.js"></script>
+        <script src="libs/uuid.js"></script>
+        <script>
+            System.config({
+                packages: {
+                    app: {
+                        format: 'register',
+                        defaultExtension: 'js',
+                        map: {
+                            immutable: 'libs/immutable.js'
+                        }
+                    }
+                }
+            });
+            System.import('app/bootstrap').then(null, console.error.bind(console));
+        </script>
+    </body>
+</html>
