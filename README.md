@@ -1,13 +1,13 @@
-##Angular 2 Multiselect component
+## Angular 2 Multiselect component
 
-####Installation
+#### Installation
 
 - Clone repository
 - Install nodejs
 - Run npm install
 - Run gulp build task
 
-####Usage
+#### Usage
 ```html
 <multiselect 
   (modelUpdated)="parentCompoentMethod($event)" 
@@ -37,7 +37,7 @@ export default class DemoComponent {
 }
 ```
 
-####API Documentation
+#### API Documentation
 | Attribute  Name | Type | Description |
 | --- | --- | --- |
 | multiple | true/false| If value is true we can select many items, if false only one item |
